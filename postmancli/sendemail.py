@@ -10,16 +10,17 @@ import os
 import time
 import random
 
+
 def generate_message_id(msg_from):
     domain = msg_from.split("@")[1]
     r = "%s.%s" % (time.time(), random.randint(0, 100))
     mid = "<%s@%s>" % (r, domain)
     return mid
 
-def send_mail(msg_from, to, subject, text,
-    files=[],server="localhost", debug=False):
-    assert type(to)==list
-    assert type(files)==list
+
+def send_mail(msg_from, to, subject, text, files=[], server="localhost", debug=False):
+    assert type(to) == list
+    assert type(files) == list
 
     msg = MIMEMultipart()
     msg['From'] = msg_from
@@ -37,8 +38,7 @@ def send_mail(msg_from, to, subject, text,
         part = MIMEBase('application', "octet-stream")
         part.set_payload( open(file,"rb").read() )
         encoders.encode_base64(part)
-        part.add_header('Content-Disposition', 'attachment; filename="%s"'
-                       % os.path.basename(file))
+        part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(file))
         msg.attach(part)
 
     if not debug:
