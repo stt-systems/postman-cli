@@ -19,8 +19,8 @@ def generate_message_id(msg_from):
 
 
 def send_mail(server, msg_from, msg_to, subject, text, files=[], debug=False):
-    assert type(msg_to) == list
-    assert type(files) == list
+    assert isinstance(msg_to, list)
+    assert isinstance(files, list)
 
     msg = MIMEMultipart()
     msg['From'] = msg_from
