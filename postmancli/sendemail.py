@@ -18,13 +18,13 @@ def generate_message_id(msg_from):
     return mid
 
 
-def send_mail(msg_from, to, subject, text, files=[], server="localhost", debug=False):
-    assert type(to) == list
+def send_mail(server, msg_from, msg_to, subject, text, files=[], debug=False):
+    assert type(msg_to) == list
     assert type(files) == list
 
     msg = MIMEMultipart()
     msg['From'] = msg_from
-    msg['To'] = COMMASPACE.join(to)
+    msg['To'] = COMMASPACE.join(msg_to)
     msg['Date'] = formatdate(localtime=True)
     msg['Subject'] = subject
 
