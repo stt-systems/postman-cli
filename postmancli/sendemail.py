@@ -36,14 +36,14 @@ def send_mail(msg_from, to, subject, text, files=[], server="localhost", debug=F
 
     for file in files:
         part = MIMEBase('application', "octet-stream")
-        part.set_payload( open(file,"rb").read() )
+        part.set_payload(open(file, "rb").read())
         encoders.encode_base64(part)
         part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(file))
         msg.attach(part)
 
     if not debug:
         smtp = smtplib.SMTP(server)
-        smtp.sendmail(msg_from, to, msg.as_string())
+        smtp.sendmail(msg_from, msg_to, msg.as_string())
         smtp.close()
 
     return msg
