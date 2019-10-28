@@ -6,6 +6,7 @@ import argparse
 
 class Validator(object):
     __domain_pattern = re.compile("^([a-z0-9]+(\-[a-z0-9]+)*\.)+[a-z]{2,3}$")
+    __main_domain_pattern = re.compile("([a-z0-9]+(\-[a-z0-9]+)*\.){1}[a-z]{2,3}$")
     __server_pattern = re.compile("^([\w\.]+){1}:([\w\.]+){1}@([\w\-\.]+){1}:(\d+){1}$")
 
     @staticmethod
@@ -27,3 +28,8 @@ class Validator(object):
                         return string
         raise argparse.ArgumentTypeError("%s is not valid server format.\n"
                                          "Try to use following format: user:password@smtpserver:port" % string)
+
+    @staticmethod
+    def get_main_domain(domain):
+        main_domain = Validator.__main_domain_pattern.search(domain)
+        return main_domain.group(0)
