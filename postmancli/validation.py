@@ -5,7 +5,7 @@ import argparse
 
 
 class Validator(object):
-    __domain_pattern = re.compile("([a-z0-9]+(\-[a-z0-9]+)*\.)+[a-z]{2,3}$")
+    __domain_pattern = re.compile("^([a-z0-9]+(\-[a-z0-9]+)*\.)+[a-z]{2,3}$")
     __server_pattern = re.compile("^([\w\.]+){1}:([\w\.]+){1}@([\w\-\.]+){1}:(\d+){1}$")
 
     @staticmethod
