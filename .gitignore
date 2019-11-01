@@ -5,3 +5,4 @@ dist
 build
 postman.egg-info
 postman.spec
+**_trial_temp*/
