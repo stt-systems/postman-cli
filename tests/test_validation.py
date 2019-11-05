@@ -91,7 +91,7 @@ class TestClassValidations(unittest.TestCase):
 
 
 class TestClassMethods(unittest.TestCase):
-    def test_main_domain(self):
+    def test_get_main_domain(self):
         self.assertEqual('mascandobits.es', Validator.get_main_domain('mascandobits.es'))
         self.assertEqual('mascandobits.es', Validator.get_main_domain('subdomain.mascandobits.es'))
         self.assertEqual('more-mascandobits.es', Validator.get_main_domain('more-mascandobits.es'))
