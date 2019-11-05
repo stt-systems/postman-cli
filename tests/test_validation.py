@@ -90,5 +90,15 @@ class TestClassValidations(unittest.TestCase):
             self.assertIsInstance(e, ArgumentTypeError)
 
 
+class TestClassMethods(unittest.TestCase):
+    def test_main_domain(self):
+        self.assertEqual('mascandobits.es', Validator.get_main_domain('mascandobits.es'))
+        self.assertEqual('mascandobits.es', Validator.get_main_domain('subdomain.mascandobits.es'))
+        self.assertEqual('more-mascandobits.es', Validator.get_main_domain('more-mascandobits.es'))
+        self.assertEqual('more-mascandobits.es', Validator.get_main_domain('subdomain.more-mascandobits.es'))
+        self.assertEqual('mascandobits.es', Validator.get_main_domain('more-subdomain.mascandobits.es'))
+        self.assertEqual('more-mascandobits.es', Validator.get_main_domain('more-subdomain.more-mascandobits.es'))
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
