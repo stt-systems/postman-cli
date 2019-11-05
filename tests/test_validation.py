@@ -11,7 +11,7 @@ from argparse import ArgumentTypeError
 
 class TestClassValidations(unittest.TestCase):
 
-    def test_main_domain(self):
+    def test_domain(self):
         self.assertEqual('mascandobits.es', Validator.check_domain('mascandobits.es'))
         self.assertEqual('subdomain.mascandobits.es', Validator.check_domain('subdomain.mascandobits.es'))
         try:
