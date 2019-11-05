@@ -21,6 +21,31 @@ class TestClassValidations(unittest.TestCase):
             self.fail('Exception not raised')
         except ArgumentTypeError as e:
             self.assertIsInstance(e, ArgumentTypeError)
+        try:
+            Validator.check_domain('-mascandobits.es')
+            self.fail('Exception not raised')
+        except ArgumentTypeError as e:
+            self.assertIsInstance(e, ArgumentTypeError)
+        try:
+            Validator.check_domain('.mascandobits.es')
+            self.fail('Exception not raised')
+        except ArgumentTypeError as e:
+            self.assertIsInstance(e, ArgumentTypeError)
+        try:
+            Validator.check_domain('subdomain.-mascandobits.es')
+            self.fail('Exception not raised')
+        except ArgumentTypeError as e:
+            self.assertIsInstance(e, ArgumentTypeError)
+        try:
+            Validator.check_domain('-subdomain.mascandobits.es')
+            self.fail('Exception not raised')
+        except ArgumentTypeError as e:
+            self.assertIsInstance(e, ArgumentTypeError)
+        try:
+            Validator.check_domain('.subdomain.mascandobits.es')
+            self.fail('Exception not raised')
+        except ArgumentTypeError as e:
+            self.assertIsInstance(e, ArgumentTypeError)
 
     def test_server(self):
         self.assertEqual('user:password@domain.com:443',
