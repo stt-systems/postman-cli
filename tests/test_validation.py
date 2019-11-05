@@ -14,6 +14,8 @@ class TestClassValidations(unittest.TestCase):
     def test_domain(self):
         self.assertEqual('mascandobits.es', Validator.check_domain('mascandobits.es'))
         self.assertEqual('subdomain.mascandobits.es', Validator.check_domain('subdomain.mascandobits.es'))
+        self.assertEqual('more-mascandobits.es', Validator.check_domain('more-mascandobits.es'))
+        self.assertEqual('subdomain.more-mascandobits.es', Validator.check_domain('subdomain.more-mascandobits.es'))
         try:
             Validator.check_domain('rdch106@mascandobits.es')
             self.fail('Exception not raised')
