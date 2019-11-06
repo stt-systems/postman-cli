@@ -13,7 +13,7 @@ import random
 
 def generate_message_id(msg_from):
     domain = msg_from.split("@")[1]
-    r = "%s.%s" % (time.time(), random.randint(0, 100))
+    r = "postman-cli.%s.%s" % (time.time(), random.randint(0, 100))
     mid = "<%s@%s>" % (r, domain)
     return mid
 
