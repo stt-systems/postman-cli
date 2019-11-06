@@ -99,6 +99,10 @@ class TestClassMethods(unittest.TestCase):
         self.assertEqual('mascandobits.es', Validator.get_main_domain('more-subdomain.mascandobits.es'))
         self.assertEqual('more-mascandobits.es', Validator.get_main_domain('more-subdomain.more-mascandobits.es'))
 
+    def test_get_server_values(self):
+        self.assertListEqual(['user.1', 'password.1', 'more-subdomain.more-domain.com', '443'],
+                             Validator.get_server_values('user.1:password.1@more-subdomain.more-domain.com:443'))
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
