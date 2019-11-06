@@ -42,8 +42,18 @@ def send_mail(server, msg_from, msg_to, subject, text, files=[], debug=False):
         msg.attach(part)
 
     if not debug:
-        smtp = smtplib.SMTP(server)
-        smtp.sendmail(msg_from, msg_to, msg.as_string())
-        smtp.close()
+        smtp = smtplib.SMTP_SSL()
+        smtp.connect(server['host'], server['port'])
+        try:
+            smtp.login(server['user'], server['password'])
+        except smtplib.SMTPAuthenticationError as e:
+            print(e.smtp_error.decode('utf8'))
+            smtp.close()
+            return None
+
+        try:
+            smtp.sendmail(msg_from, msg_to, msg.as_string())
+        finally:
+            smtp.close()
 
     return msg
