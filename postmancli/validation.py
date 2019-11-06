@@ -33,3 +33,11 @@ class Validator(object):
     def get_main_domain(domain):
         main_domain = Validator.__main_domain_pattern.search(domain)
         return main_domain.group(0)
+
+    @staticmethod
+    def get_server_values(server):
+        values = server.split(':')
+        tmp = values[1].split('@')
+        values[1] = tmp[0]
+        values.insert(2, tmp[1])
+        return values
