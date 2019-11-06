@@ -28,6 +28,8 @@ def send_mail(server, msg_from, msg_to, subject, text, files=[], debug=False):
     msg['Date'] = formatdate(localtime=True)
     msg['Subject'] = subject
 
+    text = text.replace('@nl@', '\n')
+    text = text.replace('@tab@', '\t')
     text = text.encode("utf-8")
     text = MIMEText(text, 'plain', "utf-8")
     msg.attach(text)
