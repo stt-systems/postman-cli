@@ -98,6 +98,7 @@ class TestClassMethods(unittest.TestCase):
         self.assertEqual('more-mascandobits.es', Validator.get_main_domain('subdomain.more-mascandobits.es'))
         self.assertEqual('mascandobits.es', Validator.get_main_domain('more-subdomain.mascandobits.es'))
         self.assertEqual('more-mascandobits.es', Validator.get_main_domain('more-subdomain.more-mascandobits.es'))
+        self.assertEqual('gmail.com', Validator.get_main_domain('smtp.gmail.com'))
 
     def test_get_server_values(self):
         self.assertListEqual(['user.1', 'password.1', 'more-subdomain.more-domain.com', '443'],
