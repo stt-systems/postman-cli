@@ -8,7 +8,7 @@
 
 Python CLI (postmancli) tool for emails sending using SMTP server.
 
-### What can I do with PFS?
+### What can I do with postmancli?
 
 * Send emails using SMTP SSL
 * Use it from terminal when it is installed
@@ -43,4 +43,4 @@ The example sends an email with `user@gmail.com` as sender, `someone@gmail.com` 
 
 Run the following command to see all options available:
 
-`pfs --help` or ` pfs -h`
+`postmancli --help` or `postmancli -h`
