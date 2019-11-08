@@ -1,5 +1,6 @@
 # postman-cli
 
+[![PyPI Compatibility](https://img.shields.io/pypi/pyversions/postmancli.svg)](https://pypi.python.org/pypi/postmancli)
 [![PyPI License](https://img.shields.io/pypi/l/postmancli.svg)](https://github.com/rdch106/postman-cli/blob/master/LICENSE)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/08eb8749f36e428b8e350bcbb22b0083)](https://www.codacy.com/manual/RDCH106/postman-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RDCH106/postman-cli&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/RDCH106/postman-cli.svg?branch=master)](https://travis-ci.org/RDCH106/postman-cli)
