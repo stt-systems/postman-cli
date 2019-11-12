@@ -24,7 +24,7 @@ You can install or upgrade postmancli with:
 Or you can install from source with:
 
 ```bash
-$ git clone https://github.com/RDCH106/postman-cli.git --recursive
+$ git clone https://github.com/stt-systems/postman-cli.git --recursive
 $ cd postmancli
 $ pip install .
 ```
