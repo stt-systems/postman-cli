@@ -9,6 +9,7 @@ from email import encoders
 import os
 import time
 import random
+import sys
 
 
 def generate_message_id(msg_from):
@@ -44,7 +45,11 @@ def send_mail(server, msg_from, msg_to, subject, text, files=[], debug=False):
         msg.attach(part)
 
     if not debug:
-        smtp = smtplib.SMTP_SSL()
+        # https://bugs.python.org/issue36094
+        if sys.version_info >= (3, 7):
+            smtp = smtplib.SMTP_SSL(server['host'])
+        else:
+            smtp = smtplib.SMTP_SSL()
         smtp.connect(server['host'], server['port'])
         try:
             smtp.login(server['user'], server['password'])
