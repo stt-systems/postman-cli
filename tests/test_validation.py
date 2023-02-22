@@ -50,6 +50,8 @@ class TestClassValidations(unittest.TestCase):
     def test_server(self):
         self.assertEqual('user:password@domain.com:443',
                          Validator.check_server('user:password@domain.com:443'))
+        self.assertEqual('user@domain.com:password@domain.com:443',
+                         Validator.check_server('user@domain.com:password@domain.com:443'))
         self.assertEqual('user:password@subdomain.domain.com:443',
                          Validator.check_server('user:password@subdomain.domain.com:443'))
         self.assertEqual('user:password@more-domain.com:443',
@@ -68,6 +70,9 @@ class TestClassValidations(unittest.TestCase):
                          Validator.check_server('user.1:password.1@subdomain.more-domain.com:443'))
         self.assertEqual('user.1:password.1@more-subdomain.more-domain.com:443',
                          Validator.check_server('user.1:password.1@more-subdomain.more-domain.com:443'))
+        self.assertEqual('user.1@more-subdomain.more-domain.com:password.1@more-subdomain.more-domain.com:443',
+                         Validator.check_server('user.1@more-subdomain.more-domain.com:password.1'
+                                                '@more-subdomain.more-domain.com:443'))
         try:
             Validator.check_server('domain.com:443')
             self.fail('Exception not raised')
