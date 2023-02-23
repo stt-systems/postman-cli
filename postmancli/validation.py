@@ -7,7 +7,7 @@ import argparse
 class Validator(object):
     __domain_pattern = re.compile("^([a-z0-9]+(\-[a-z0-9]+)*\.)+[a-z]{2,3}$")
     __main_domain_pattern = re.compile("([a-z0-9]+(\-[a-z0-9]+)*\.){1}[a-z]{2,3}$")
-    __server_pattern = re.compile("^([\w\.]+){1}:([\w\.]+){1}@([\w\-\.]+){1}:(\d+){1}$")
+    __server_pattern = re.compile("^([\w\.@\-]+){1}:([\w\.]+){1}@([\w\-\.]+){1}:(\d+){1}$")
 
     @staticmethod
     def check_domain(string):
@@ -20,8 +20,12 @@ class Validator(object):
     def check_server(string):
         ret = Validator.__server_pattern.match(string)
         if ret:
-            tmp_val = string.split("@")
+            reverse_string = string[::-1]
+            tmp_val = reverse_string.split("@", 1)
             if len(tmp_val) == 2:
+                tmp_swap = tmp_val[0]
+                tmp_val[0] = tmp_val[1][::-1]
+                tmp_val[1] = tmp_swap[::-1]
                 tmp_val = tmp_val[1].split(":")
                 if len(tmp_val) == 2:
                     if Validator.check_domain(tmp_val[0]):
