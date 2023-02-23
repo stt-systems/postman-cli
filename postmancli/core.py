@@ -27,7 +27,8 @@ class Postman(object):
 
     def run(self):
         server_values = Validator.get_server_values(self.args.server)
-        server_values[0] = server_values[0] + '@' + Validator.get_main_domain(server_values[2])
+        if len(server_values[0].split("@")) == 1:
+            server_values[0] = server_values[0] + '@' + Validator.get_main_domain(server_values[2])
         send_mail({'user': server_values[0], 'password': server_values[1],
                    'host': server_values[2], 'port': int(server_values[3])},
                   msg_from=self.args.msg_from, msg_to=self.args.msg_to, subject=self.args.subject, text=self.args.text,
