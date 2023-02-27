@@ -4,7 +4,10 @@
 [![PyPI Compatibility](https://img.shields.io/pypi/pyversions/postmancli.svg)](https://pypi.python.org/pypi/postmancli)
 [![PyPI License](https://img.shields.io/pypi/l/postmancli.svg)](https://github.com/rdch106/postman-cli/blob/master/LICENSE)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/af5c773a2094424ba9b0867967478ee7)](https://www.codacy.com/manual/stt-systems/postman-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stt-systems/postman-cli&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/stt-systems/postman-cli.svg?branch=master)](https://travis-ci.org/stt-systems/postman-cli)
+<!--[![Build Status](https://travis-ci.org/stt-systems/postman-cli.svg?branch=master)](https://travis-ci.org/stt-systems/postman-cli)-->
+<!--[![Build Status](https://github.com/stt-systems/postman-cli/actions/workflows/python-package.yml/badge.svg)](https://github.com/stt-systems/postman-cli/actions/workflows/python-package.yml)-->
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/stt-systems/postman-cli/python-package.yml?label=Python%20Package&logo=github&logoColor=yellow)](https://github.com/stt-systems/postman-cli/actions/workflows/python-package.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/stt-systems/postman-cli/python-package-win32.yml?label=Python%20Package%20Win32&logo=github&logoColor=yellow)](https://github.com/stt-systems/postman-cli/actions/workflows/python-package-win32.yml)
 
 Python CLI (postmancli) tool for emails sending using SMTP server.
 
